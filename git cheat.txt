@@ -52,6 +52,8 @@ Add aliases to your ~/.gitconfig file:
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
 
+  [pretty]
+  	info = format:%C(yellow)%h%C(reset) %C(blue)%ad%C(reset) %C(green)%an%C(reset)%C(red)%d%C(reset) %s
 
 Configuration
 -------------
