@@ -45,6 +45,9 @@ Add aliases to your ~/.gitconfig file:
     lol = log --graph --decorate --pretty=oneline --abbrev-commit
     lola = log --graph --decorate --pretty=oneline --abbrev-commit --all
     ls = ls-files
+    cleanup = "!git branch --merged | grep -v '\\*\\master' | xargs -n 1 git branch -d"
+    graph = log --graph --oneline -- decorate
+    clear = !git clean -df && git reset --hard && git status
 
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
@@ -116,7 +119,7 @@ git show <rev>
   show the changeset (diff) of a commit specified by <rev>, which can be any
   SHA1 commit ID, branch name, or tag (shows the last commit (HEAD) by default)
 
-  also to show the contents of a file at a specific revision, use 
+  also to show the contents of a file at a specific revision, use
      git show <rev>:<filename>
   this is similar to cat-file but much simpler syntax.
 
@@ -419,7 +422,7 @@ git reset --hard
   If merging has resulted in conflicts and you'd like to just forget about
   the merge, this command will do that.
 
-git reset --hard ORIG_HEAD or git reset --hard origin/master 
+git reset --hard ORIG_HEAD or git reset --hard origin/master
   undo your most recent *successful* merge *and* any changes that occurred
   after.  Useful for forgetting about the merge you just did.  If there are
   conflicts (the merge was not successful), use "git reset --hard" (above)
