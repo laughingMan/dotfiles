@@ -1,0 +1,4 @@
+{
+	"shell_cmd": ["jsc", "$file"],
+    "selector": "source.javascript"
+}

@@ -1,0 +1,127 @@
+#-------------------------------------------------------------
+# Shortcuts
+#-------------------------------------------------------------
+alias bp='subl ~/.bash_profile'
+alias ba='subl ~/.bash_aliases'
+alias ws='cd ~/workspace'
+alias workspace='cd ~/workspace'
+alias gitdir='cd ~/git'
+alias gitinst='open ~/git/git\ instructions.rtf'
+alias rb="cd ~/git/rb"
+alias py="cd ~/git/py"
+alias reload='source ~/.bash_profile && source ~/.bash_aliases'
+alias starwars='telnet towel.blinkenlights.nl'
+
+alias sshtunnel='ssh -D 8080 -f -N ihatton@****.cs.siue.edu'
+alias sshtunnel='ssh -D 8080 -f -p 22 -N administrator@*'
+alias sshlogin='ssh -D 8080 -f -N administrator@*****.cs.siue.edu'
+
+
+#-------------------------------------------------------------
+# SSH Shortcuts
+#-------------------------------------------------------------
+alias henry='ssh -v henry@*****'
+alias server='ssh -v administrator@*****.net'
+
+
+#-------------------------------------------------------------
+# Hackathon
+#-------------------------------------------------------------
+alias pi='ssh -p 2200 pi@pi.teamfreebooter.com'
+alias node1='ssh -v pi@node1'
+alias node2='ssh -v pi@node2'
+alias node3='ssh -v pi@node3'
+alias node4='ssh -v pi@node4'
+
+
+#-------------------------------------------------------------
+# SERVER Shortcuts
+#-------------------------------------------------------------
+alias restart='sudo shutdown -r now'
+alias restartServer='ssh -t administrator@*****.net "sudo shutdown -r now && exit"'
+alias restartARD='ssh -t administrator@*****.net "sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent && exit"'
+
+alias server='ssh -v administrator@*****.net'
+alias pingServer='ping *****.net'
+alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"'
+
+
+#-------------------------------------------------------------
+# WORK Shortcuts
+#-------------------------------------------------------------
+alias ksk='cd /Users/isaac/workspace/work/kiosk-ios-app'
+alias hive='cd /Users/isaac/workspace/work/hive'
+
+
+#-------------------------------------------------------------
+# HOME Shortcuts
+#-------------------------------------------------------------
+alias cheat='head -n 53 ~/.bash_aliases'
+alias sub='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+
+#-------------------------------------------------------------
+# TEMP Shortcuts
+#-------------------------------------------------------------
+# scp -v /path/to/local/file username@hostname:/path/to/remote/file
+
+
+#-------------------------------------------------------------
+# ALIASES / FUNCTIONS
+#-------------------------------------------------------------
+alias da='date "+%Y-%m-%d %A    %T %Z"'
+alias fn='find . -name'
+alias hi='history | tail -20'
+alias brew='brew -v'
+alias diff='diff --color'
+alias scp='scp -v'
+alias cp='cp_p'
+alias ping='ping -v'
+
+#-------------------------------------------------------------
+# The 'ls' family
+#-------------------------------------------------------------
+#alias lsa='ls -Glak'  #color, long format, dir entries, kilobites
+#alias lsc='ls -Glk'
+#alias lsl='ls -G | more'
+#alias lsla='ls -Ga | more'
+alias ls='ls -GAp'
+
+
+#-------------------------------------------------------------
+# -> Prevents accidentally clobbering files.
+#-------------------------------------------------------------
+alias rm='rm -i'
+alias rmi='rm'
+alias cp='cp -i'
+alias mv='mv -i'
+alias mkdir='mkdir -p'
+
+
+#-------------------------------------------------------------
+# spelling typos - highly personal and keyboard-dependent :-)
+#-------------------------------------------------------------
+alias cs='cd'
+alias cim='vim'
+alias suod='sudo'
+
+
+#-------------------------------------------------------------
+# enable color support of ls and also add handy aliases
+#-------------------------------------------------------------
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    #alias dir='dir --color=auto'
+    #alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+
+
+#-------------------------------------------------------------
+# Add an "alert" alias for long running commands.  Use like so:
+#   sleep 10; alert
+#-------------------------------------------------------------
+alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'

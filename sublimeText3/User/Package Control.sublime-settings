@@ -1,0 +1,15 @@
+{
+	"in_process_packages":
+	[
+	],
+	"installed_packages":
+	[
+		"Advanced CSV",
+		"Delete Lines",
+		"Indent XML",
+		"Package Control",
+		"Pretty JSON",
+		"Python Unittest Helper",
+		"Theme - Brogrammer"
+	]
+}

@@ -1,0 +1,206 @@
+export PATH=$PATH:/Users/isaac/bin:/opt/local/bin:/opt/local/sbin:/Developer/adt-bundle-mac-x86_64-20130219/sdk/platform-tools:/Developer/adt-bundle-mac-x86_64-20130219/sdk/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:/usr/local/mysql/bin
+
+#-------------------------------------------------------------
+# Exports
+#-------------------------------------------------------------
+export PATH=/usr/local/bin:$PATH
+
+# Android Development Tools (adt)
+export PATH=/Developer/adt-bundle-mac-x86_64-20130219/sdk/platform-tools:/Developer/adt-bundle-mac-x86_64-20130219/sdk/tools:$PATH
+
+# MacPorts
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# To ensure that MacPorts pkg-config can find stuff that rosdep installs in /usr
+export PKG_CONFIG_PATH=/usr/lib/pkgconfig
+export LESS="-erX"
+
+# android dev
+export PATH=/Users/isaac/bin:$PATH
+
+# Ruby Version Manager (RVM)
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+
+#-------------------------------------------------------------
+# Turn off tab case completion
+#-------------------------------------------------------------
+#echo "set completion-ignore-case On" >> ~/.inputrc
+
+
+#-------------------------------------------------------------
+# Boot to verbose mode
+#-------------------------------------------------------------
+# sudo nvram boot-args="-v"
+
+
+#-------------------------------------------------------------
+# turn on/ off hidden folders
+#-------------------------------------------------------------
+#  defaults write com.apple.finder AppleShowAllFiles -bool false
+#  killall Finder
+
+
+#-------------------------------------------------------------
+# force git to always use color (diff)
+#-------------------------------------------------------------
+# $ git config --global color.diff auto
+# $ git config --global color.diff always
+
+
+#-------------------------------------------------------------
+# ls after cd
+#-------------------------------------------------------------
+function cd() {
+    builtin cd "$1"
+    ls -pA
+}
+
+
+#-------------------------------------------------------------
+# Makes help a fallback for man
+#-------------------------------------------------------------
+man () {
+	/usr/bin/man $@ || (help $@ 2> /dev/null && help $@ | less)
+}
+
+
+#-------------------------------------------------------------
+# Colors
+#-------------------------------------------------------------
+#alias grep='grep -rcl --color=auto'
+#export GREP_OPTIONS="--color=always"
+#export GREP_COLOR="1;33"
+
+#export LSCOLORS=Bxhxexdxhxegedabagacex
+export LSCOLORS=Bxdxdxdxfxdxhxhxhxhxhx
+
+#     a     black
+#     b     red
+#     c     green
+#     d     brown
+#     e     blue
+#     f     magenta
+#     g     cyan
+#     h     light grey
+#     A     bold black, usually shows up as dark grey
+#     B     bold red
+#     C     bold green
+#     D     bold brown, usually shows up as yellow
+#     E     bold blue
+#     F     bold magenta
+#     G     bold cyan
+#     H     bold light grey; looks like bright white
+#     x     default foreground or background
+#
+#     1. directory
+#     2. symbolic link
+#     3. socket
+#     4. pipe
+#     5. executable
+#     6. block special
+#     7. character special
+#     8. executable with setuid bit set
+#     9. executable with setgid bit set
+#    10. directory writable to others, with sticky bit
+#    11. directory writable to others, without sticky bit
+
+
+#-------------------------------------------------------------
+# If not running interactively, don't do anything
+#-------------------------------------------------------------
+[ -z "$PS1" ] && return
+
+
+#-------------------------------------------------------------
+# don't put duplicate lines in the history. See bash(1) for more options
+# ... or force ignoredups and ignorespace
+#-------------------------------------------------------------
+HISTCONTROL=ignoredups:ignorespace
+
+
+#-------------------------------------------------------------
+# append to the history file, don't overwrite it
+#-------------------------------------------------------------
+shopt -s histappend
+
+
+#-------------------------------------------------------------
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+#-------------------------------------------------------------
+HISTSIZE=1000
+HISTFILESIZE=2000
+export HISTFILESIZE=3000
+
+
+#-------------------------------------------------------------
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+#-------------------------------------------------------------
+shopt -s checkwinsize
+
+# make less more friendly for non-text input files, see lesspipe(1)
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+#-------------------------------------------------------------
+# set variable identifying the chroot you work in (used in the prompt below)
+#-------------------------------------------------------------
+if [ -z "$debian_chroot" ] && [ -r /etc/debian_chroot ]; then
+    debian_chroot=$(cat /etc/debian_chroot)
+fi
+
+
+#-------------------------------------------------------------
+# set a fancy prompt (non-color, unless we know we "want" color)
+#-------------------------------------------------------------
+case "$TERM" in
+    xterm-color) color_prompt=yes;;
+esac
+
+
+#-------------------------------------------------------------
+# stop hibernation after 4 hours of sleep
+#-------------------------------------------------------------
+# sudo pmset -a autopoweroff 0
+
+#-------------------------------------------------------------
+# uncomment for a colored prompt, if the terminal has the capability; turned
+# off by default to not distract the user: the focus in a terminal window
+# should be on the output of commands, not on the prompt
+#-------------------------------------------------------------
+force_color_prompt=yes
+
+if [ -n "$force_color_prompt" ]; then
+    if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
+	# We have color support; assume it's compliant with Ecma-48
+	# (ISO/IEC-6429). (Lack of such support is extremely rare, and such
+	# a case would tend to support setf rather than setaf.)
+	color_prompt=yes
+    else
+	color_prompt=
+    fi
+fi
+
+if [ "$color_prompt" = yes ]; then
+	#PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\e[0;37m\]\A \w \$\[\e[0m\] '
+else
+    PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+fi
+unset color_prompt force_color_prompt
