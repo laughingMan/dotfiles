@@ -49,8 +49,8 @@ alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo r
 #-------------------------------------------------------------
 # WORK Shortcuts
 #-------------------------------------------------------------
-alias ksk='cd /Users/isaac/workspace/work/kiosk-ios-app'
-alias hive='cd /Users/isaac/workspace/work/hive'
+alias hive='cd ~/workspace/work/hive'
+alias work='cd ~/workspace'
 
 
 #-------------------------------------------------------------

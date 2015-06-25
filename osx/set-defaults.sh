@@ -43,3 +43,5 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 
 # Turn off tab case completion
 echo "set completion-ignore-case On" >> ~/.inputrc
+
+#TODO: restart finder to see changes

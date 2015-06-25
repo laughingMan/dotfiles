@@ -1,4 +1,4 @@
-export PATH=$PATH:/Users/isaac/bin:/opt/local/bin:/opt/local/sbin:/Developer/adt-bundle-mac-x86_64-20130219/sdk/platform-tools:/Developer/adt-bundle-mac-x86_64-20130219/sdk/tools:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin:/usr/local/mysql/bin
+export PATH=$PATH:~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin:/usr/local/mysql/bin
 
 #-------------------------------------------------------------
 # Exports
@@ -11,9 +11,6 @@ export PATH=/opt/local/bin:/opt/local/sbin:$PATH
 # To ensure that MacPorts pkg-config can find stuff that rosdep installs in /usr
 export PKG_CONFIG_PATH=/usr/lib/pkgconfig
 export LESS="-erX"
-
-# android dev
-export PATH=/Users/isaac/bin:$PATH
 
 # default terminal editor
 export EDITOR='subl -w'

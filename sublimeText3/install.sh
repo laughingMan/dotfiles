@@ -5,8 +5,10 @@ SUBLIME_PATH=~/Library/Application\ Support/Sublime\ Text\ 3/
 
 # copy SublimeText3 user preferences
 if [ -d "$SUBLIME_PATH" ]; then
+	#TODO: echo "Installing Sublime Text package manager"
+
 	echo "Installing Sublime Text packages"
-	cp $PWD/sublimeText3/User $SUBLIME_PATH/Packages/
+	cp -r $PWD/sublimeText3/User $SUBLIME_PATH/Packages/
 
 	echo "Creating Sublime Text simlink"
 	mkdir ~/bin
