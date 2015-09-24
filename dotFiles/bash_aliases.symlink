@@ -1,8 +1,8 @@
 #-------------------------------------------------------------
 # Shortcuts
 #-------------------------------------------------------------
-alias bp='subl ~/.bash_profile'
-alias ba='subl ~/.bash_aliases'
+alias bp='atom ~/.bash_profile'
+alias ba='atom ~/.bash_aliases'
 alias ws='cd ~/workspace'
 alias workspace='cd ~/workspace'
 alias gitdir='cd ~/git'
@@ -49,15 +49,19 @@ alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo r
 #-------------------------------------------------------------
 # WORK Shortcuts
 #-------------------------------------------------------------
-alias hive='cd ~/workspace/work/hive'
+alias hive='cd ~/workspace/hive'
 alias work='cd ~/workspace'
+alias refresh='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm install && bower install && ember server'
+alias rebuild='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm cache clear && bower cache clean && npm install && bower install'
 
 
 #-------------------------------------------------------------
 # HOME Shortcuts
 #-------------------------------------------------------------
 alias cheat='head -n 53 ~/.bash_aliases'
-alias sub='/Applications/Sublime\ Text.app/Contents/SharedSupport/bin/subl'
+alias sub='/Applications/Atom.app/Contents/Resources/app/atom.sh'
+alias subl='/Applications/Atom.app/Contents/Resources/app/atom.sh'
+
 
 #-------------------------------------------------------------
 # TEMP Shortcuts
