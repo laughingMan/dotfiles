@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # Sets reasonable OS X defaults.
 # http://blog.jameskyle.org/2010/08/osx-defaults-hacks/
 # Run ./set-defaults.sh and you'll be good to go.
@@ -19,12 +21,14 @@ defaults write com.apple.finder ShowRemovableMediaOnDesktop -bool true
 # Set finder preferences
 defaults write com.apple.finder ShowPathbar -bool true
 defaults write com.apple.finder SidebarTagsSctionDisclosedState -bool false
-defaults write com.apple.finder ShowStatusBar -bool false
-defaults write com.apple.finder ShowTabView -bool false
+defaults write com.apple.finder ShowStatusBar -bool true
+defaults write com.apple.finder ShowTabView -bool true
+defaults write com.apple.finder ShowRecentTags -bool false
 defaults write com.apple.finder NewWindowTargetPath "file://localhost$(echo ~)"
 
 # Set dock preferences
-defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { arrangement = 1; displayas = 1; "file-label" = Downloads; "file-type" = 2; preferreditemsize = "-1"; showas = 2; "file-label" = Downloads; "file-data" = {"_CFURLString" = "file:///Users/isaac/Downloads/";};}; "tile-type" = "directory-tile";}'
+#TODO: check if preferences below exist to avoid duplication
+defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { arrangement = 1; displayas = 1; "file-label" = Downloads; "file-type" = 2; preferreditemsize = "-1"; showas = 2; "file-label" = Downloads; "file-data" = {"_CFURLString" = "file://$HOME/Downloads/";};}; "tile-type" = "directory-tile";}'
 defaults write com.apple.dock persistent-others -array-add '{ "tile-data" = { arrangement = 1; displayas = 1; "file-label" = Downloads; "file-type" = 2; preferreditemsize = "-1"; showas = 2; "file-label" = Applications; "file-data" = {"_CFURLString" = "file:///Applications/";};}; "tile-type" = "directory-tile";}'
 
 # Run the screensaver if we're in the bottom-left hot corner.
@@ -44,4 +48,5 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # Turn off tab case completion
 echo "set completion-ignore-case On" >> ~/.inputrc
 
-#TODO: restart finder to see changes
+#restart finder to see changes
+sudo killall Finder
