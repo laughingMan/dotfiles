@@ -8,20 +8,11 @@ export EDITOR='atom'
 
 
 #-------------------------------------------------------------
-# Alias definitions.
+# Use separate alias file
 #-------------------------------------------------------------
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-
-#-------------------------------------------------------------
-# ls after cd
-#-------------------------------------------------------------
-function cd() {
-    builtin cd "$1"
-    ls -pA
-}
 
 
 #-------------------------------------------------------------
@@ -149,4 +140,22 @@ unset color_prompt force_color_prompt
 
 
 #-------------------------------------------------------------
+# custom 'cd'
 #-------------------------------------------------------------
+function cd() {
+  ## ls after cd
+  builtin cd "$1"
+  ls -pA
+
+  ## 'cd' into directory aliases
+  if [ ${#1} == 0 ]; then
+    builtin cd
+  elif [ -d "${1}" ]; then
+    builtin cd "${1}"
+  elif [[ -f "${1}" || -L "${1}" ]]; then
+    path=$(getTrueName "$1")
+    builtin cd "$path"
+  else
+    builtin cd "${1}"
+  fi
+}
