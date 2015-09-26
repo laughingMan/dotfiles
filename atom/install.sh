@@ -2,7 +2,7 @@
 
 # setup Atom
 
-ATOM_PATH="~/.atom"
+ATOM_PATH="$HOME/.atom"
 
 if test ! $(which atom)
 then
@@ -30,3 +30,20 @@ apm install pain-split
 apm install smart-tab-name
 apm install the-closer
 apm install tree-view-breadcrumb
+
+local overwrite_all=false backup_all=false skip_all=false
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+echo "Installing Atom preferences"
+
+for src in $(find -H "$PWD" -maxdepth 2 -name '*.cson')
+do
+	dotfile="$(basename "${src%}")"
+	dst="$ATOM_PATH/$dotfile"
+	rm -rf "$dst"
+	ln -s "$src" "$dst"
+	success "linked $src to $dst"
+done
