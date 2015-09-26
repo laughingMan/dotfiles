@@ -1,0 +1,27 @@
+"*":
+  "exception-reporting":
+    userId: "f8603d50-7cb5-24a4-b8c7-d996b549173a"
+  welcome:
+    showOnStartup: false
+  core:
+    projectHome: "/Users/isaac.hatton/workspace"
+  editor:
+    invisibles: {}
+    preferredLineLength: 100
+    fontSize: 13
+    showInvisibles: true
+  "custom-title": {}
+  "smart-tab-name": {}
+  "the-closer":
+    closeWindowTogetherWithLastTab: false
+  minimap:
+    plugins:
+      "git-diff": true
+      selection: true
+      "minimap-hide": true
+      "minimap-autohide": true
+      "find-and-replace": true
+      "highlight-selected": true
+  "tree-view-open-files": {}
+  "atom-beautify":
+    _analyticsUserId: "d18a144c-e5ba-4d6c-bbc6-c479a0e70c08"
