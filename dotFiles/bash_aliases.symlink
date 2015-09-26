@@ -37,6 +37,7 @@ alias ls='ls -GApk'
 # Others
 #-------------------------------------------------------------
 alias starwars='telnet towel.blinkenlights.nl'
+eval "$(thefuck --alias fuck)"
 
 
 #-------------------------------------------------------------
