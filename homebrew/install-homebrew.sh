@@ -36,4 +36,9 @@ then
   brew install android-platform-tools
 fi
 
+if test ! $(which uncrustify)
+then
+  brew install uncrustify
+fi
+
 exit 0
