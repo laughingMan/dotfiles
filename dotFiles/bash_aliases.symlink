@@ -4,24 +4,15 @@
 alias bp='atom ~/.bash_profile'
 alias ba='atom ~/.bash_aliases'
 alias ws='cd ~/workspace'
-alias workspace='cd ~/workspace'
-alias gitdir='cd ~/git'
-alias gitinst='open ~/git/git\ instructions.rtf'
-alias rb="cd ~/git/rb"
-alias py="cd ~/git/py"
+alias work='cd ~/workspace'
 alias reload='source ~/.bash_profile && source ~/.bash_aliases'
+alias restart='sudo shutdown -r now'
+
+
+#-------------------------------------------------------------
+# Others
+#-------------------------------------------------------------
 alias starwars='telnet towel.blinkenlights.nl'
-
-alias sshtunnel='ssh -D 8080 -f -N ihatton@****.cs.siue.edu'
-alias sshtunnel='ssh -D 8080 -f -p 22 -N administrator@*'
-alias sshlogin='ssh -D 8080 -f -N administrator@*****.cs.siue.edu'
-
-
-#-------------------------------------------------------------
-# SSH Shortcuts
-#-------------------------------------------------------------
-alias henry='ssh -v henry@*****'
-alias server='ssh -v administrator@*****.net'
 
 
 #-------------------------------------------------------------
@@ -37,11 +28,9 @@ alias node4='ssh -v pi@node4'
 #-------------------------------------------------------------
 # SERVER Shortcuts
 #-------------------------------------------------------------
-alias restart='sudo shutdown -r now'
+alias server='ssh -v administrator@*****.net'
 alias restartServer='ssh -t administrator@*****.net "sudo shutdown -r now && exit"'
 alias restartARD='ssh -t administrator@*****.net "sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent && exit"'
-
-alias server='ssh -v administrator@*****.net'
 alias pingServer='ping *****.net'
 alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"'
 
@@ -50,7 +39,6 @@ alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo r
 # WORK Shortcuts
 #-------------------------------------------------------------
 alias hive='cd ~/workspace/hive'
-alias work='cd ~/workspace'
 alias refresh='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm install && bower install && ember server'
 alias rebuild='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm cache clear && bower cache clean && npm install && bower install'
 
@@ -64,35 +52,41 @@ alias subl='/Applications/Atom.app/Contents/Resources/app/atom.sh'
 
 
 #-------------------------------------------------------------
-# TEMP Shortcuts
+# Reference
 #-------------------------------------------------------------
 # scp -v /path/to/local/file username@hostname:/path/to/remote/file
+# sshtunnel  ssh -D 8080 -f -p 22 -N administrator@*****.net
 
 
 #-------------------------------------------------------------
 # ALIASES / FUNCTIONS
 #-------------------------------------------------------------
+alias cp='cp_p'
 alias da='date "+%Y-%m-%d %A    %T %Z"'
 alias fn='find . -name'
 alias hi='history | tail -20'
-alias brew='brew -v'
 alias diff='diff --color'
+
+
+#-------------------------------------------------------------
+# Verbose
+#-------------------------------------------------------------
+alias brew='brew -v'
 alias scp='scp -v'
-alias cp='cp_p'
 alias ping='ping -v'
+alias ssh='ssh -v'
+
 
 #-------------------------------------------------------------
 # The 'ls' family
 #-------------------------------------------------------------
-#alias lsa='ls -Glak'  #color, long format, dir entries, kilobites
-#alias lsc='ls -Glk'
-#alias lsl='ls -G | more'
-#alias lsla='ls -Ga | more'
-alias ls='ls -GAp'
+alias ls='ls -GApk'
+alias lsa='ls -GlA'
+alias lsl='ls -G | more'
 
 
 #-------------------------------------------------------------
-# -> Prevents accidentally clobbering files.
+# Prevent accidental clobbering of files
 #-------------------------------------------------------------
 alias rm='rm -i'
 alias rmi='rm'
