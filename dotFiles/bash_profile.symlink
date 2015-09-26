@@ -42,25 +42,6 @@ fi
 
 
 #-------------------------------------------------------------
-# Turn off tab case completion
-#-------------------------------------------------------------
-#echo "set completion-ignore-case On" >> ~/.inputrc
-
-
-#-------------------------------------------------------------
-# Boot to verbose mode
-#-------------------------------------------------------------
-# sudo nvram boot-args="-v"
-
-
-#-------------------------------------------------------------
-# turn on/ off hidden folders
-#-------------------------------------------------------------
-#  defaults write com.apple.finder AppleShowAllFiles -bool false
-#  killall Finder
-
-
-#-------------------------------------------------------------
 # force git to always use color (diff)
 #-------------------------------------------------------------
 # $ git config --global color.diff auto
@@ -176,11 +157,6 @@ case "$TERM" in
     xterm-color) color_prompt=yes;;
 esac
 
-
-#-------------------------------------------------------------
-# stop hibernation after 4 hours of sleep
-#-------------------------------------------------------------
-# sudo pmset -a autopoweroff 0
 
 #-------------------------------------------------------------
 # uncomment for a colored prompt, if the terminal has the capability; turned

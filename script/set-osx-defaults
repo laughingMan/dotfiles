@@ -48,5 +48,15 @@ defaults write NSGlobalDomain WebKitDeveloperExtras -bool true
 # Turn off tab case completion
 echo "set completion-ignore-case On" >> ~/.inputrc
 
+# stop hibernation after 4 hours of sleep
+sudo pmset -a autopoweroff 0
+
+## Boot to verbose mode
+# sudo nvram boot-args="-v"
+
+## turn on/ off hidden folders
+#  defaults write com.apple.finder AppleShowAllFiles -bool false
+
+
 #restart finder to see changes
 sudo killall Finder
