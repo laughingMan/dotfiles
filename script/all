@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+sh bootstrap
+sh install
+sh set-osx-defaults
