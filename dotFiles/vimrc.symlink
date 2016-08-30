@@ -1,5 +1,5 @@
-# By pressing Ctrl-N twice in normal mode, Vim toggles between showing and hiding line numbers.
+" By pressing Ctrl-N twice in normal mode, Vim toggles between showing and hiding line numbers.
 :nmap <C-N><C-N> :set invnumber<CR>
 
-# syntax highlighting
+" syntax highlighting
 syntax on
