@@ -54,13 +54,7 @@
 [credential]
         helper = cache --timeout=3600
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-
-[mergetool "sourcetree"]
-	trustExitCode = true
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-
 [push]
        default = simple
+[branch]
+	autosetuprebase = always

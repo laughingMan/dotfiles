@@ -1,7 +1,6 @@
 export PATH=$PATH:~/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/git/bin
+eval "$(thefuck --alias)"
 
-# default terminal editor
-export EDITOR='atom'
 
 # Ruby Version Manager (RVM)
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
@@ -148,14 +147,32 @@ function cd() {
   ls -pA
 
   ## 'cd' into directory aliases
-  if [ ${#1} == 0 ]; then
-    builtin cd
-  elif [ -d "${1}" ]; then
-    builtin cd "${1}"
-  elif [[ -f "${1}" || -L "${1}" ]]; then
-    path=$(getTrueName "$1")
-    builtin cd "$path"
-  else
-    builtin cd "${1}"
-  fi
+  #if [ ${#1} == 0 ]; then
+  #  builtin cd
+  #elif [ -d "${1}" ]; then
+  #  builtin cd "${1}"
+  #elif [[ -f "${1}" || -L "${1}" ]]; then
+  #  path=$(getTrueName "$1")
+  #  builtin cd "$path"
+  #else
+  #  builtin cd "${1}"
+  #fi
 }
+if which rbenv > /dev/null; then eval 'export PATH="/Users/isaac.hatton/.rbenv/shims:${PATH}"
+export RBENV_SHELL=bash
+source '/usr/local/Cellar/rbenv/1.0.0/libexec/../completions/rbenv.bash'
+command rbenv rehash 2>/dev/null
+rbenv() {
+  local command
+  command="$1"
+  if [ "$#" -gt 0 ]; then
+    shift
+  fi
+
+  case "$command" in
+  rehash|shell)
+    eval "$(rbenv "sh-$command" "$@")";;
+  *)
+    command rbenv "$command" "$@";;
+  esac
+}'; fi

@@ -27,9 +27,9 @@ alias subl='/Applications/Atom.app/Contents/Resources/app/atom.sh'
 
 alias diff='diff --color'
 alias brew='brew -v'
-alias scp='scp -v'
+# alias scp='scp -v'
 alias ping='ping -v'
-alias ssh='ssh -v'
+#  alias ssh='ssh -v'
 alias ls='ls -GApk'
 
 
@@ -44,10 +44,10 @@ eval "$(thefuck --alias fuck)"
 # WORK Shortcuts & Functions
 #-------------------------------------------------------------
 alias hive='cd ~/workspace/hive'
+alias refresh='rm -fr bower_components/ && rm -fr node_modules/ && npm install && bower install && ember server'
+alias rebuild='rm -fr bower_components/ && rm -fr node_modules/ && npm cache clear && bower cache clean && npm install && bower install'
 
-alias refresh='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm install && bower install && ember server'
-alias rebuild='rm -fr HiveWeb/bower_components/ && rm -fr HiveWeb/node_modules/ && npm cache clear && bower cache clean && npm install && bower install'
-
+alias gbr="git branch | grep -v "master" | xargs git branch -D"
 
 #-------------------------------------------------------------
 # SERVER Shortcuts & Functions
