@@ -1,22 +1,31 @@
 # remap prefix from 'C-b' to 'C-a'
-unbind C-a
-set-option -g prefix C-a
-bind-key C-a send-prefix
+# unbind C-b
+# set-option -g prefix C-a
+# bind-key C-a send-prefix
 
 # smooth scrolling in mouse mode
 bind -n WheelUpPane if-shell -F -t = "#{mouse_any_flag}" "send-keys -M" "if -Ft= '#{pane_in_mode}' 'send-keys -M' 'select-pane -t=; copy-mode -e; send-keys -M'"
 bind -n WheelDownPane select-pane -t= \; send-keys -M
 
-# split panes using | and -
-unbind '"'
-unbind %
-bind | split-window -h
-bind - split-window -v
+# promote window to front
+unbind +
+bind + \
+  new-window -d -n tmux-zoom 'clear && echo TMUX ZOOM && read' \;\
+  swap-pane -s tmux-zoom.0 \;\
+  select-window -t tmux-zoom
 
+# un-premote window to front
+unbind =
+bind = \
+  last-window \;\
+  swap-pane -s tmux-zoom.0 \;\
+  kill-window -t tmux-zoom
 
 # split panes using h and v
-bind h split-window -h
-bind v split-window -v
+unbind '"'
+unbind %
+bind v split-window -h
+bind h split-window -v
 
 # toggle mouse mode
 bind-key m set-option -g mouse on \; display 'Mouse: ON'
