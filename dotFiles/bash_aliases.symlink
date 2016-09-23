@@ -1,4 +1,12 @@
 #-------------------------------------------------------------
+# SSH config
+#-------------------------------------------------------------
+alias ssh-home='echo -n > ~/.ssh/config && cat ~/.ssh/home.config > ~/.ssh/config'
+alias ssh-work='echo -n > ~/.ssh/config && cat ~/.ssh/work.config > ~/.ssh/config && cat ~/.ssh/remote.config >> ~/.ssh/config'
+alias ssh-remote='echo -n > ~/.ssh/config && cat ~/.ssh/remote.config > ~/.ssh/config'
+
+
+#-------------------------------------------------------------
 # Shortcuts
 #-------------------------------------------------------------
 alias ws='cd ~/workspace'
