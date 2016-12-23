@@ -74,6 +74,7 @@ export LSCOLORS=Bxdxdxdxfxdxhxhxhxhxhx
 #-------------------------------------------------------------
 HISTSIZE=
 HISTFILESIZE=
+PROMPT_COMMAND='history -a'
 
 # don't put duplicate lines in the history
 HISTCONTROL=ignoredups:ignorespace
