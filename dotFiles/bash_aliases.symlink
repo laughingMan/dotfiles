@@ -34,7 +34,6 @@ alias sub='/Applications/Atom.app/Contents/Resources/app/atom.sh'
 alias subl='/Applications/Atom.app/Contents/Resources/app/atom.sh'
 
 alias diff='diff --color'
-alias brew='brew -v'
 # alias scp='scp -v'
 alias ping='ping -v'
 #  alias ssh='ssh -v'
@@ -51,21 +50,7 @@ eval "$(thefuck --alias fuck)"
 #-------------------------------------------------------------
 # WORK Shortcuts & Functions
 #-------------------------------------------------------------
-alias hive='cd ~/workspace/hive'
-alias refresh='rm -fr bower_components/ && rm -fr node_modules/ && npm install && bower install && ember server'
-alias rebuild='rm -fr bower_components/ && rm -fr node_modules/ && npm cache clear && bower cache clean && npm install && bower install'
-
 alias gbr="git branch | grep -v "master" | xargs git branch -D"
-
-#-------------------------------------------------------------
-# SERVER Shortcuts & Functions
-#-------------------------------------------------------------
-alias server='ssh -v administrator@*****.net'
-
-alias restartServer='ssh -t administrator@*****.net "sudo shutdown -r now && exit"'
-alias restartARD='ssh -t administrator@*****.net "sudo /System/Library/CoreServices/RemoteManagement/ARDAgent.app/Contents/Resources/kickstart -restart -agent && exit"'
-alias pingServer='ping *****.net'
-alias resetServer='ssh administrator@*****.net "sudo ifconfig en0 down && sudo route flush && sudo ifconfig en0 up"'
 
 
 #-------------------------------------------------------------
