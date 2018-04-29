@@ -8,5 +8,5 @@ tmux new -s rpi_setup
 
 apt-get install -y git
 mkdir workspace
-git clone https://github.com/laughingMan/dotfiles.git ~/workspace
+git clone https://github.com/laughingMan/dotfiles.git ~/.dotfiles
 
