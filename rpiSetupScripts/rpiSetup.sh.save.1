@@ -1,0 +1,11 @@
+#!/bin/bash
+
+apt-get upgrade
+apt-get dist-upgrade
+apt-get auto remove
+apt-get clean
+
+apt-get install -y vim fail2ban logrotate 
+
+sh installMOTD.sh
+
