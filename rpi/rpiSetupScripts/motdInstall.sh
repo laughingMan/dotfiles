@@ -1,20 +1,19 @@
 #!/bin/bash
 #https://oitibs.com/debian-jessie-dynamic-motd/
 
+script_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
 # install lsb-release & figlet to enable ASCII art
 apt-get install lsb-release figlet -y
 
 # create directory
-mkdir /etc/update-motd.d/
+mkdir -p /etc/update-motd.d/
 
 # change to new directory
 cd /etc/update-motd.d/
 
-# create dynamic files
-cp ./motd/00-header /etc/update-motd.d/
-cp ./motd/10-sysinfo /etc/update-motd.d/
-cp ./motd/20-updates /etc/update-motd.d/
-cp ./motd/90-footer /etc/update-motd.d/
+# copy files into place
+cp "$script_path"/motd/* /etc/update-motd.d/
 
 # make files executable
 chmod +x /etc/update-motd.d/*
